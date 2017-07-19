@@ -38,6 +38,10 @@ private:
   // previous timestamp
   long long previous_timestamp_;
 
+  // Noise values from the task
+  const float noise_ax = 9.0;
+  const float noise_ay = 9.0;
+
   // tool object used to compute Jacobian and RMSE
   Tools tools;
   Eigen::MatrixXd R_laser_;
