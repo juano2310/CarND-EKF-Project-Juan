@@ -41,7 +41,7 @@ void KalmanFilter::Update(const VectorXd &z) {
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
 	double rho = sqrt(x_(0)*x_(0) + x_(1)*x_(1));
-	if (rho != 0 && (x_(0) != 0 && x_(1) != 0)) {
+	if (fabs(rho) > 0.0001 && (fabs(x_(0)) > 0.0001 && fabs(x_(1)) > 0.0001)) {
 		double theta = atan2(x_(1),x_(0));
 	    double rho_dot = (x_(0)*x_(2) + x_(1)*x_(3)) / rho;
 
